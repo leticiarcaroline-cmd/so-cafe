@@ -393,3 +393,29 @@
     text-align: center;
     display: block;
 }
+
+@media (max-width: 768px) {
+    .galeria-mosaic {
+        display: flex;
+        flex-direction: column; 
+        gap: 15px;
+    }
+
+    .item img, .item video {
+        width: 100%;  
+        height: auto;
+    }
+
+    .menu-container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .menu-item {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
