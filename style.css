@@ -152,8 +152,7 @@
     margin-top: 2px;
     Font-size: 1.2rem;
     line-height: 1.6;
-    column-count: 2;
-    column-gap: 2rem;
+
  }
 
  .about h2 {
@@ -317,7 +316,7 @@
 }
 
 .contact-box {
-    background-color:#f6e7d6; 
+    background-color:#f7f6f5; 
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
@@ -393,29 +392,47 @@
     text-align: center;
     display: block;
 }
-
 @media (max-width: 768px) {
+  
     .galeria-mosaic {
-        display: flex;
-        flex-direction: column; 
+        display: grid;
+        grid-template-columns: 1fr; 
+        grid-auto-rows: 300px; 
         gap: 15px;
     }
 
+   
+    .img-1, .img-2, .img-3, .item-4, .img-5 {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+
     .item img, .item video {
-        width: 100%;  
-        height: auto;
-    }
-
-    .menu-container {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .menu-item {
-        display: flex;
-        justify-content: space-between;
         width: 100%;
-        margin-bottom: 10px;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.navbar {
+        padding: 1rem;
+        gap: 8px;
+        flex-wrap: wrap; /* Faz os botões pularem linha se não couberem */
+    }
+
+    .navbar a {
+        font-size: 0.9rem; /* Diminui um pouco a letra no celular */
+        margin: 0.5rem 0;
+    }.row {
+        padding: 0 15px; /* Margem interna para o texto não encostar no vidro do celular */
+    }
+
+    .video-banner {
+        height: auto;
+        max-height: 300px; /* Evita que o vídeo ocupe a tela toda verticalmente */
+    }
+
+    /* Ajuste dos títulos que estão muito grandes para telas pequenas */
+    .about h2, .menu-section h2, .gallery-content h2 {
+        font-size: 28px !important; 
     }
 }
