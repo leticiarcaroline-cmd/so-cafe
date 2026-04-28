@@ -397,42 +397,65 @@
     .galeria-mosaic {
         display: grid;
         grid-template-columns: 1fr; 
-        grid-auto-rows: 300px; 
+        grid-auto-rows: 250px; 
         gap: 15px;
     }
+section, .home-container, .about {
+    padding: 40px 20px; 
+}
 
+p {
+    line-height: 1.6; 
+    text-align: left;
+}
    
     .img-1, .img-2, .img-3, .item-4, .img-5 {
-        grid-column: span 1 !important;
-        grid-row: span 1 !important;
+        grid-column: span 1;
+        grid-row: span 1;
     }
 
     .item img, .item video {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 10pxS;
     }
 }
 .navbar {
         padding: 1rem;
         gap: 8px;
-        flex-wrap: wrap; /* Faz os botões pularem linha se não couberem */
+        flex-wrap: wrap; 
     }
 
     .navbar a {
-        font-size: 0.9rem; /* Diminui um pouco a letra no celular */
+        font-size: 0.9rem; 
         margin: 0.5rem 0;
-    }.row {
-        padding: 0 15px; /* Margem interna para o texto não encostar no vidro do celular */
     }
-
-    .video-banner {
-        height: auto;
-        max-height: 300px; /* Evita que o vídeo ocupe a tela toda verticalmente */
+    
+    .row {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
-
-    /* Ajuste dos títulos que estão muito grandes para telas pequenas */
-    .about h2, .menu-section h2, .gallery-content h2 {
-        font-size: 28px !important; 
-    }
+.content,.about-content-wrapper{
+    padding: 0 10px;
 }
+.h2,h3{
+    text-align: center;
+
+}
+.p{
+    text-align: justify;
+    font-size: 1rem;
+}
+    .video-banner {
+        height: 50vh;
+        width: 100%;
+        object-fit: cover;
+        margin-left: -20px;
+    }
+
+    .about h2, .menu-section h2, .gallery-content h2 {
+        font-size: 28px;
+    }
+
