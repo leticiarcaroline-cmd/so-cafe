@@ -59,7 +59,7 @@ function irParaContato() {
 
 let navbar = document.querySelector('.navbar');
 
-// Isso aqui é o que você já tinha (MANTÉM)
+
 document.querySelector('#menu-btn').onclick = () => {
     navbar.classList.toggle('active');
 }
@@ -68,7 +68,7 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 }
 
-// Isso aqui é o que você está ACRESCENTANDO (NOVO)
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -76,7 +76,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             window.scrollTo({
-                top: target.offsetTop - 70, // Ajusta para não cobrir o título da seção
+                top: target.offsetTop - 70, 
                 behavior: 'smooth'
             });
         }
