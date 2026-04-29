@@ -1,0 +1,9 @@
+[
+  { "nome": "Espresso Especial", "preco": 9.00 },
+  { "nome": "Cappuccino Italiano", "preco": 14.00 },
+  { "nome": "Cold Brew Artístico", "preco": 16.00 },
+  { "nome": "Orange Coffee", "preco": 12.99 },
+  { "nome": "Café V60", "preco": 6.99 },
+  { "nome": "Latte Macchiato", "preco": 15.00 },
+  { "nome": "Afogatto Especial", "preco": 19.00 }
+]

@@ -8,6 +8,31 @@ menuBtn.addEventListener("click", () => {
   console.log("clicou");
   navbar.classList.toggle("active");
 });
+
+
+async function carregarMenu() {
+  const resposta = await fetch('./cardapio.json');
+  const cardapio = await resposta.json();
+  const menuContanier = document.querySelector(".menu-Contanier");
+  
+  if (!menuContanier) return;
+  
+  menuContanier.innerHTML = "";
+  
+  cardapio.forEach(cafe => {
+    menuContanier.innerHTML += `
+      <div class="menu-item">
+        <span class="item-name">${cafe.nome}</span>
+        <span class="item-price">R$ ${cafe.preco.toFixed(2).replace('.', ',')}</span>
+      </div>
+    `;
+  });
+}
+
+carregarMenu();
+
+
+
 document.querySelectorAll('.menu a').forEach(link => {
     link.addEventListener('click', function(e){
         e.preventDefault();
