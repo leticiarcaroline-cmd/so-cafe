@@ -1,7 +1,7 @@
 # So-Cafe
 Site institucional de uma cafeteria especial, desenvolvido como projeto de aprendizado.
 
-# Tecnologias utilizadas 
+# Tecnologias utilizadas
 - HTML5
 - CSS3
 - Javascript
