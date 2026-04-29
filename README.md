@@ -1,4 +1,4 @@
-# SO CAFE
+# So-Cafe
 Site institucional de uma cafeteria especial, desenvolvido como projeto de aprendizado.
 
 # Tecnologias utilizadas 
