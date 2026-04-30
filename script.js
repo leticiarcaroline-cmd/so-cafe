@@ -1,84 +1,57 @@
-const menuBtn = document.getElementById("menu-btn");
-const navbar = document.getElementById("navbar");
+const menuBtn = document.getElementById(“menu-btn”);
+const navbar = document.getElementById(“navbar”);
 
-console.log(menuBtn);
-console.log(navbar);
-
-menuBtn.addEventListener("click", () => {
-  console.log("clicou");
-  navbar.classList.toggle("active");
+// Abre/fecha menu mobile
+menuBtn.addEventListener(“click”, () => {
+navbar.classList.toggle(“active”);
 });
 
+// Fecha menu ao rolar a página
+window.addEventListener(“scroll”, () => {
+navbar.classList.remove(“active”);
+});
 
+// Smooth scroll nos links do navbar
+document.querySelectorAll(’.navbar a’).forEach(link => {
+link.addEventListener(‘click’, function (e) {
+e.preventDefault();
+navbar.classList.remove(“active”); // fecha menu ao clicar
+const id = this.getAttribute(‘href’).replace(’#’, ‘’);
+const section = document.getElementById(id);
+if (section) {
+window.scrollTo({
+top: section.offsetTop - 70,
+behavior: ‘smooth’
+});
+}
+});
+});
+
+// Carrega cardápio do JSON
 async function carregarMenu() {
-  const resposta = await fetch('./cardapio.json');
-  const cardapio = await resposta.json();
-  const menuContanier = document.querySelector(".menu-Contanier");
-  
-  if (!menuContanier) return;
-  
-  menuContanier.innerHTML = "";
-  
-  cardapio.forEach(cafe => {
-    menuContanier.innerHTML += `
-      <div class="menu-item">
-        <span class="item-name">${cafe.nome}</span>
-        <span class="item-price">R$ ${cafe.preco.toFixed(2).replace('.', ',')}</span>
-      </div>
-    `;
-  });
+try {
+const resposta = await fetch(’./cardapio.json’);
+const cardapio = await resposta.json();
+const menuContainer = document.querySelector(”.menu-container”);
+
+```
+if (!menuContainer) return;
+
+menuContainer.innerHTML = "";
+
+cardapio.forEach(cafe => {
+  menuContainer.innerHTML += `
+    <div class="menu-item">
+      <span class="item-name">${cafe.nome}</span>
+      <span class="item-price">R$ ${cafe.preco.toFixed(2).replace('.', ',')}</span>
+    </div>
+  `;
+});
+```
+
+} catch (err) {
+console.error(“Erro ao carregar cardápio:”, err);
+}
 }
 
 carregarMenu();
-
-
-
-document.querySelectorAll('.menu a').forEach(link => {
-    link.addEventListener('click', function(e){
-        e.preventDefault();
-
-        const id = this.getAttribute('data-link');
-        const section = document.getElementById(id);
-
-        section.scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-function irParaEndereco() {
-  document.getElementById("endereco").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-function irParaContato() {
-  document.getElementById("contato").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-let navbar = document.querySelector('.navbar');
-
-
-document.querySelector('#menu-btn').onclick = () => {
-    navbar.classList.toggle('active');
-}
-
-window.onscroll = () => {
-    navbar.classList.remove('active');
-}
-
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 70, 
-                behavior: 'smooth'
-            });
-        }
-    });
-});
